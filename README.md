@@ -9,18 +9,36 @@ College - Link is an android application wherein college students can register, 
 
 ### Main features of the application :
 
-- Register/login using your email id and password.
-- Add your skills.
-- Add a post along with the skills associated with it.
-- View other users' posts.
-- Get notified when a post is added which matches your skill(s).
-- Like other users' posts.
-- Comment on other users' posts.
-- Chat with other users.
-- View the list of all registered users.
-- View other users' profiles.
+- _Register/login_ using your email id and password.
+- Add your _skills_.
+- _Add a post_ along with the skills associated with it.
+- View your _feed_, where your post and other users' post will be displayed.
+- _Get notified_ when a post is added which matches your skill(s).
+- _Like_ other users' posts.
+- _Comment_ on other users' posts.
+- _Chat_ with other users.
+- _View the list_ of all registered users.
+- View _other users' profiles_.
+- Block/unblock any user.
 
-### How to test this application on your system :
+### Side features of the application :
+
+- Edit your _skills_, _name_, _email_, _password_ and _profile picture_.
+- View the number of likes and comments on every post.
+- See a list of _all users who liked_ a certain post.
+- See all comments on every post.
+- _Search for a particular post_ on the homepage using words from its title or description.
+- _Search for a particular user_ on the users page by their name or any corresponding alphabets from their name.
+- Go to the _chat screen_ directly from any user's post.
+- See the _last seen_ of any user you're chatting to.
+
+### Download the APK file :
+
+- We are currently in progress for publishing the app on Playstore so it's not available there yet.
+- On the right-hand side of this repository, you'll find the _latest release_ of this application. You can download the apk file as well as the source code for this app by clicking on that tag.
+- You can download and install the apk file on your _android_ device from [here](https://drive.google.com/file/d/1CZK77beR0V7axYgvQXRKJVFWt5seFhs9/view?usp=sharing) as well.
+
+### How to test this application on your own system :
 
 - First of all, make sure you have [Git](https://git-scm.com/) installed in your system. Open CMD and paste - `git clone https://github.com/Hacks-On/CollegeLink`.
 - Now, open Android Studio and open the cloned project.
@@ -32,17 +50,18 @@ College - Link is an android application wherein college students can register, 
   
   > Cloud Storage for Firebase>Get started with Cloud Storage. Add the FirebaseStorage SDKs to your project.
   
-- Please note that the above step helps you connect the cloned project to your own Firebase project on the [Firebase console](https://console.firebase.google.com). You can skip this step since the application is already connected to our Firebase project and the dependencies for the SDKs are already present in the gradle files(_which are being installed during gradle sync/build_).
+- Please note that the above step helps you connect the cloned project to your own Firebase project on the [Firebase console](https://console.firebase.google.com). You can skip this step since the application is already connected to _our_ Firebase project and the dependencies for the SDKs are already present in the gradle files(_which are being installed during gradle sync/build_).
 - Once the gradle finishes building, you're good to go. Connect Android Studio to your android device or create a virtual device using the AVD manager. Now, run the app. _Voila!_
+- If you encounter any bugs while using the application or want to suggest any improvements/features, feel free to create an _issue_ for the same and we'll look into it!
 
 ### External services/libraries used :
 
 - Firebase Authentication(`implementation 'com.google.firebase:firebase-auth:19.0.0'`) : This Firebase service helps in authenticating the users and logging them it/out. It is currently being done using _email_ and _password_. 
-- Firebase Realtime Database(`implementation 'com.google.firebase:firebase-database:19.0.0'`) : This Firebase service forms almost the complete back-end of this application
-- Firebase Storage(`implementation 'com.google.firebase:firebase-storage:19.0.0'`)
-- Volley library(`implementation 'com.android.volley:volley:1.1.1'`)
-- Circle Image View(`implementation 'de.hdodenhof:circleimageview:3.1.0'`)
-- Gson library(`implementation 'com.google.code.gson:gson:2.8.6'`)
+- Firebase Realtime Database(`implementation 'com.google.firebase:firebase-database:19.0.0'`) : This Firebase service forms almost the complete back-end of this application. Almost all the data being fetched in the application is stored and retreived using this database only.
+- Firebase Storage(`implementation 'com.google.firebase:firebase-storage:19.0.0'`) : To upload images or any graphical content, we need a storage unit apart from the database for these items. This task is accomplished using Firebase Storage wherein all the images uploaded by the user(_post images_ and _profile pictures_) are stored.
+- Volley library(`implementation 'com.android.volley:volley:1.1.1'`) : This is an _HTTP library_ aimed at making _networking_ for android apps much more easier and faster.
+- Circle Image View(`implementation 'de.hdodenhof:circleimageview:3.1.0'`) : This library is used to display any image inside a _circular_ container/frame.
+- Gson library(`implementation 'com.google.code.gson:gson:2.8.6'`) : This library is aimed at converting _JSON strings_ into their corresponding _Java objects_ and vice-versa.
 
 ### Concepts used :
 
@@ -94,25 +113,35 @@ College - Link is an android application wherein college students can register, 
 - `Data.java` : Contains _getters_ and _setters_ for misc. functions related to _chat_ and _notifications_.
 - `Token.java` : Contains _getters_ and _setters_ for misc. functions related to _chat_ and _notifications_.
 
+- `UserHelper.java` : Contains _getters_ and _setters_ for helping the user register/login. This file is currently _not in use_.
+
 ### Extra XML files created :
 
 Whenever an Activity or Fragment is created, an XML file is also created along with it which defines the design and UI elements of that activity/fragment. But, apart from those files, we have created some extra XML files as well :
 
 - `row_chat_left.xml` : Contains the design for displaying the messages of the _second person_ in the chat.
 - `row_chat_right.xml` : Contains the design for displaying the messages of the _first person(the current user)_ in the chat.
-- `row_chatlist.xml` : Contains the design of a dummy chatlist as it will be displayed in the chatbox fragment.
-- `row_posts.xml` : Contains the design of a dummy post as it will be displayed on the user's feed.
-- `row_notifications.xml` : Contains the design of a dummy notification as it will be displayed on the notifications screen.
-- `row_users.xml` : Contains the design of a dummy user as it will be displayed in the users fragment.
-- `row_comments.xml` : Contains the design of a dummy comment as it will be displayed on any post.
+- `row_chatlist.xml` : Contains the design of a _dummy chatlist_ as it will be displayed in the chatbox fragment.
+- `row_posts.xml` : Contains the design of a _dummy post_ as it will be displayed on the user's feed.
+- `row_notifications.xml` : Contains the design of a _dummy notification_ as it will be displayed on the notifications screen.
+- `row_users.xml` : Contains the design of a _dummy user_ as it will be displayed in the users fragment.
+- `row_comments.xml` : Contains the design of a _dummy comment_ as it will be displayed on any post.
+- `dialog_update_password.xml` : Contains the design for the _dialog box_ which pops up when the button for changing password is clicked.
 
 ### Please note :
 
 - First of all, connect your app to Firebase. Then, add the required Firebase SDKs for the Firebase services being used in the app(_FirebaseAuth, FirebaseDatabase, FirebaseStorage_). This can be done either by adding the required dependencies manually(these can be found at [_Firebase Documentation_](https://firebase.google.com/docs)) in the gradle files which will download the SDKs, or by using the IDE to add the SDKs automatically(go to _Tools>Firebase_ to do so).
-- Update `AndroidManifest.xml` file as per the one present in this repository.
-- Update _res>font_ folder.
-- Update _res>values>colors_ folder.
-- Update _res>drawables_ folder.
+- Update `AndroidManifest.xml` file as per the one present in this repository. Do note that all the activities present in the project are mentioned in this file.
+- Update _app>src>main>res>drawable_ folder. This folder contains the xml files used.
 - Update _app>src>main>res>font_ folder. This folder contains the external fonts used.
 - Update _res>values>colors.xml_ file. This folder contains the external colors used.
-- Update _app>src>main>res>drawable_ folder. This folder contains the xml files used.
+- Update _res>values>strings.xml_ file. This folder contains the external strings used.
+
+### Future enhancements :
+
+- Making _different database segments_ for _different colleges_ and assigning a _unique key_ to students of a particular college. This way, this app can be uniquely used by each college throughout the world. Although, to implement this, a strong and huge database will be required. Luckily, Firebase itself offers such a service(_paid_) which can make this application production-ready.
+- Adding the feature to _create a group_ by selecting certain users and starting a group chat.
+- Creating _drop-down menus for adding a lot more skills_ from every tech-domain.
+- Extending the app to _non-tech fields_ as well. A seperate space can be created for users interested in these fields and same functionalities can be implemented in that space as well.
+- _UI/UX improvements_ to match the modern trends of social media.
+- Improving the accessibility of _posts_, _users_ and _notifications_ and making them more detailed.
